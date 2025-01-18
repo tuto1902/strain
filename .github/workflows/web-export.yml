@@ -38,4 +38,4 @@ jobs:
 
       - name: Godot HTML5 export
         run: |
-          godot --export "HTML5" $WORKING_DIRECTORY/build/web/index.html
+          godot --export-release --headless "HTML5" $WORKING_DIRECTORY/build/web/index.html
