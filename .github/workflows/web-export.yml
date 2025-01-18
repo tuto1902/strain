@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  WORKING_DIRECTORY: ./
+  WORKING_DIRECTORY: .
 
 jobs:
   deploy:
@@ -16,11 +16,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Create export directory
-        run: mkdir html5
+        run: mkdir -p $WORKING_DIRECTORY/build/web
 
       - name: Godot HTML5 export
-        uses: dulvui/godot-4-html-export@v1
-        with:
-          working-directory: $WORKING_DIRECTORY
-          godot-version: 4.3
-          godot-channel: stable
+        run: |
+          godot --export "HTML5" $WORKING_DIRECTORY/build/web/index.html
