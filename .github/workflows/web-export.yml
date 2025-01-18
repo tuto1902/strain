@@ -1,0 +1,27 @@
+name: Web Export
+
+on:
+  push:
+    paths:
+      - "version"
+      - ".github/workflows/upload-itchio.yml"
+
+env:
+  WORKING_DIRECTORY: ./
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Create export directory
+        run: mkdir html5
+
+      - name: Godot HTML5 export
+        uses: dulvui/godot-4-html-export@v1
+        with:
+          working-directory: $WORKING_DIRECTORY
+          godot-version: 4.3
+          godot-channel: stable
