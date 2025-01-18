@@ -15,12 +15,23 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: Download and install Godot
+      - name: Cache Godot executable
+        uses: actions/cache@v3
+        with:
+          path: godot/Godot_v4.3-stable_linux.x86_64
+          key: godot-4.3-linux-${{ runner.os }}
+          restore-keys: godot-4.3-linux-
+
+      - name: Download Godot if not cached
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          wget https://downloads.tuxfamily.org/godotengine/4.3/mono/Godot_v4.3-stable_linux_headless.64.zip
-          unzip Godot_v4.3-stable_linux_headless.64.zip -d godot
-          mv godot/Godot_v4.3-stable_linux_headless.64 /usr/local/bin/godot
-          chmod +x /usr/local/bin/godot
+          mkdir -p godot
+          wget https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+          unzip Godot_v4.3-stable_linux.x86_64.zip -d godot
+          chmod +x godot/Godot_v4.3-stable_linux.x86_64
+
+      - name: Move Godot to PATH
+        run: sudo mv godot/Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot
 
       - name: Create export directory
         run: mkdir -p $WORKING_DIRECTORY/build/web
