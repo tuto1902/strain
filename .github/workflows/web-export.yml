@@ -2,9 +2,8 @@ name: Web Export
 
 on:
   push:
-    paths:
-      - "version"
-      - ".github/workflows/upload-itchio.yml"
+    branches:
+      - main
 
 env:
   WORKING_DIRECTORY: ./
