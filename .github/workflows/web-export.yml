@@ -34,9 +34,10 @@ jobs:
         run: sudo mv godot/Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot
 
       - name: Move Export Templates
-        run: sudo mkdir -p /home/runner/.local/share/godot/export_templates/4.3.stable
-        run: sudo chmod +x /home/runner/.local/share/godot/export_templates/4.3.stable
-        run: sudo cp $WORKING_DIRECTORY/build/export_templates/4.3.stable/* /home/runner/.local/share/godot/export_templates/4.3.stable
+        run: |
+          sudo mkdir -p /home/runner/.local/share/godot/export_templates/4.3.stable
+          sudo chmod +x /home/runner/.local/share/godot/export_templates/4.3.stable
+          sudo cp $WORKING_DIRECTORY/build/export_templates/4.3.stable/* /home/runner/.local/share/godot/export_templates/4.3.stable
 
       - name: Create export directory
         run: mkdir -p $WORKING_DIRECTORY/build/web
