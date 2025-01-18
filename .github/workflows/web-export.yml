@@ -15,6 +15,13 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      - name: Download and install Godot
+        run: |
+          wget https://downloads.tuxfamily.org/godotengine/4.3/mono/Godot_v4.3-stable_linux_headless.64.zip
+          unzip Godot_v4.3-stable_linux_headless.64.zip -d godot
+          mv godot/Godot_v4.3-stable_linux_headless.64 /usr/local/bin/godot
+          chmod +x /usr/local/bin/godot
+
       - name: Create export directory
         run: mkdir -p $WORKING_DIRECTORY/build/web
 
