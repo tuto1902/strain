@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+var speed_multiplier: float
+var health_multiplier: float
+
 @export var state_machine: EnemyStateMachine
 @onready var animated_sprite_2d = $AnimatedSprite2D
 

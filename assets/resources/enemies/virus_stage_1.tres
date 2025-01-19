@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dphrjph0wfrro"]
+
+[ext_resource type="PackedScene" uid="uid://dwemgjukglhwe" path="res://scenes/game_objects/enemies/virus/stage_1_virus.tscn" id="1_13boj"]
+[ext_resource type="Script" path="res://assets/resources/enemies/basic_enemy.gd" id="2_fyfs4"]
+
+[resource]
+script = ExtResource("2_fyfs4")
+id = "virus_stage_1"
+name = "Virus Stage 1"
+description = "This stage 1 virus will relentlessly attack any foreign entities that come in contact with the host."
+enemy_scene = ExtResource("1_13boj")
