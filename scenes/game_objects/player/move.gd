@@ -1,5 +1,7 @@
 extends State
 
+var state_owner: CharacterBody2D
+
 @export var max_speed = 100
 @export var acceleration_smoothing = 25
 

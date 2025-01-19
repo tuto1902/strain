@@ -71,4 +71,4 @@ move_right={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.811765, 0.337255, 0.239216, 1)
+environment/defaults/default_clear_color=Color(0.203922, 0.109804, 0.152941, 1)

@@ -17,7 +17,7 @@ func handle_frame(delta):
 func handle_physics_frame(delta):
 	current_state.handle_physics_frame(delta)
 
-func init(state_owner: CharacterBody2D):
+func init(state_owner: Node2D):
 	states = []
 	for node in get_children():
 		if node is State:

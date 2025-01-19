@@ -2,8 +2,6 @@ class_name State extends Node
 
 signal state_changed(new_state: State)
 
-var state_owner: CharacterBody2D
-
 var state_machine: Node
 
 func _ready():
