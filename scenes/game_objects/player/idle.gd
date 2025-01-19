@@ -1,5 +1,7 @@
 extends State
 
+var state_owner: CharacterBody2D
+
 @export var deceleration_smoothing = 25
 
 @onready var move_state = $"../Move"

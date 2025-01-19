@@ -1,5 +1,7 @@
 extends State
 
+var state_owner: CharacterBody2D
+
 @export var max_speed = 45
 
 func handle_frame(delta) -> void:

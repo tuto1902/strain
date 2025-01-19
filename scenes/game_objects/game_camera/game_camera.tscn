@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dshog2dxeua0y"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/game_camera/game_camera.gd" id="1_nnoq5"]
+[ext_resource type="Script" path="res://scenes/game_objects/game_camera/state_machine.gd" id="2_317i2"]
+[ext_resource type="Script" path="res://scenes/game_objects/game_camera/follow_state.gd" id="3_nujpa"]
+
+[node name="GameCamera" type="Camera2D" node_paths=PackedStringArray("state_machine")]
+script = ExtResource("1_nnoq5")
+state_machine = NodePath("StateMachine")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_317i2")
+
+[node name="Follow" type="Node" parent="StateMachine"]
+script = ExtResource("3_nujpa")
