@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Strain"
+run/main_scene="res://scenes/arenas/test_arena.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerManager="*res://scenes/autoload/player_manager.tscn"
 
 [display]
 
@@ -21,6 +26,10 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+
+[global_group]
+
+Player=""
 
 [input]
 
@@ -62,3 +71,4 @@ move_right={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.811765, 0.337255, 0.239216, 1)

@@ -2,9 +2,9 @@ class_name State extends Node
 
 signal state_changed(new_state: State)
 
-static var player: CharacterBody2D
+var state_owner: CharacterBody2D
 
-static var state_machine: Node
+var state_machine: Node
 
 func _ready():
 	pass
@@ -21,17 +21,16 @@ func exit():
 	pass
 
 # Called every frame
-func process(_delta) -> void:
+func handle_frame(_delta) -> void:
 	pass
 
 # Called every physics frame
-func physics(_delta) -> void:
-	pass
-
-# Handle user input events
-func input(_event: InputEvent) -> void:
+func handle_physics_frame(_delta) -> void:
 	pass
 
 # Update blend position for state's animation
 func update_animation_blend_position():
+	pass
+
+func update_state_animation():
 	pass

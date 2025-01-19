@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwemgjukglhwe"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/enemies/virus/stage_1_virus.gd" id="1_6xrh1"]
+[ext_resource type="Texture2D" uid="uid://cesia53gn74h3" path="res://assets/sprites/virus_stage_1.png" id="1_k83es"]
+[ext_resource type="Script" path="res://scripts/state_machine/enemy_state_machine.gd" id="3_s610a"]
+[ext_resource type="Script" path="res://scenes/game_objects/enemies/virus/chase.gd" id="4_3tm3e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kgml"]
+atlas = ExtResource("1_k83es")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gprmc"]
+atlas = ExtResource("1_k83es")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgcn7"]
+atlas = ExtResource("1_k83es")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n0hk"]
+atlas = ExtResource("1_k83es")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2vy6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kgml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gprmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgcn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n0hk")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ey2c"]
+radius = 11.0
+
+[node name="Stage1Virus" type="CharacterBody2D" node_paths=PackedStringArray("state_machine")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_6xrh1")
+state_machine = NodePath("EnemyStateMachine")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2vy6f")
+animation = &"Move"
+frame_progress = 0.01413
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2ey2c")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("3_s610a")
+
+[node name="Chase" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_3tm3e")
