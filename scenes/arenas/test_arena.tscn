@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxb156ikgmi1i"]
+
+[ext_resource type="PackedScene" uid="uid://btwmfhhb5qmb2" path="res://scenes/game_objects/player/player.tscn" id="1_jiux0"]
+[ext_resource type="PackedScene" uid="uid://dwemgjukglhwe" path="res://scenes/game_objects/enemies/virus/stage_1_virus.tscn" id="2_0sf71"]
+[ext_resource type="AudioStream" uid="uid://b8datgbh1x8u3" path="res://assets/music/mus_combat.wav" id="3_sn20e"]
+
+[node name="TestArena" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jiux0")]
+position = Vector2(317, 184)
+
+[node name="Stage1Virus" parent="." instance=ExtResource("2_0sf71")]
+position = Vector2(76, 59)
+
+[node name="CombatMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sn20e")
+volume_db = -16.0
+autoplay = true

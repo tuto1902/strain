@@ -9,31 +9,24 @@ func _ready():
 	# a new state is selected
 	process_mode = Node.PROCESS_MODE_DISABLED
 
-func _process(delta):
+func handle_frame(delta):
 	# Update blend positions for all animations
 	update_animation_blend_positions()
-	current_state.process(delta)
+	current_state.handle_frame(delta)
 
-func _physics_process(delta):
-	current_state.physics(delta)
+func handle_physics_frame(delta):
+	current_state.handle_physics_frame(delta)
 
-func _unhandled_input(event):
-	current_state.input(event)
-
-func init(player: CharacterBody2D):
+func init(state_owner: CharacterBody2D):
 	states = []
 	for node in get_children():
 		if node is State:
+			node.state_owner = state_owner
+			node.state_machine = self
 			states.append(node)
 
 	if states.size() == 0:
 		return
-	
-	# Because these are static properties on the base state
-	# class, once they are assigned to the first state,
-	# they become available to all states.
-	states[0].player = player
-	states[0].state_machine = self
 
 	# Connect to the state change signal and initialize
 	# each state

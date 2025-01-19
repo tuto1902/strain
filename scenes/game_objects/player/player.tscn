@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://btwmfhhb5qmb2"]
+
+[ext_resource type="Texture2D" uid="uid://bh3hbx7rjiewn" path="res://icon.svg" id="1_84t1u"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="1_fo8d4"]
+[ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_wqs5c"]
+[ext_resource type="Script" path="res://scenes/game_objects/player/idle.gd" id="2_2wdhh"]
+[ext_resource type="Script" path="res://scenes/game_objects/player/move.gd" id="3_1gqxp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4kw0"]
+radius = 17.0294
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine") groups=["Player"]]
+script = ExtResource("1_wqs5c")
+state_machine = NodePath("StateMachine")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_fo8d4")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("2_2wdhh")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("3_1gqxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -12)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_84t1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_h4kw0")
