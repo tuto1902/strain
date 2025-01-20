@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb0afvsqwrupk"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/abilities/bullet.gd" id="1_hl50i"]
+[ext_resource type="Texture2D" uid="uid://dk68ysxjmh7ws" path="res://assets/sprites/sheet_projectiles.png" id="2_2qxmb"]
+[ext_resource type="Script" path="res://assets/resources/abilities/ability_stats.gd" id="2_celdl"]
+[ext_resource type="PackedScene" uid="uid://idlhwijeod20" path="res://scenes/components/hit_box_component.tscn" id="3_gnled"]
+[ext_resource type="AudioStream" uid="uid://vu017s3gdy4l" path="res://assets/sfx/sfx_virus_whoosh.wav" id="4_ujo1l"]
+[ext_resource type="Script" path="res://scenes/game_objects/abilities/bullet_state_machine.gd" id="6_730lt"]
+[ext_resource type="Script" path="res://scenes/game_objects/abilities/shoot_state.gd" id="7_hpcu8"]
+
+[sub_resource type="Resource" id="Resource_02b5f"]
+script = ExtResource("2_celdl")
+id = "basic_bullet"
+name = "Basic Bullet"
+description = "Basic bullet attack"
+damage = 20.0
+speed = 200.0
+size = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq6l1"]
+atlas = ExtResource("2_2qxmb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0vbe"]
+radius = 4.0
+
+[node name="Bullet" type="Node2D" node_paths=PackedStringArray("state_machine")]
+script = ExtResource("1_hl50i")
+stats = SubResource("Resource_02b5f")
+state_machine = NodePath("StateMachine")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nq6l1")
+
+[node name="HitBox" parent="." instance=ExtResource("3_gnled")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_q0vbe")
+
+[node name="BulletSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ujo1l")
+autoplay = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("6_730lt")
+
+[node name="Shoot" type="Node" parent="StateMachine"]
+script = ExtResource("7_hpcu8")

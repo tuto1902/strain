@@ -30,6 +30,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 Player=""
+Enemies=""
 
 [input]
 
@@ -65,6 +66,15 @@ move_right={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="AbilityHitBox"
+2d_physics/layer_5="EnemyHitBox"
+2d_physics/layer_6="PlayerPickup"
 
 [rendering]
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcbtrueha5myu"]
+
+[ext_resource type="Script" path="res://assets/resources/abilities/bullet_ability_manager.gd" id="1_olvlb"]
+[ext_resource type="PackedScene" uid="uid://cb0afvsqwrupk" path="res://scenes/game_objects/abilities/bullet.tscn" id="2_mtt4u"]
+
+[node name="BulletAbilityManager" type="Node"]
+script = ExtResource("1_olvlb")
+bullet_scene = ExtResource("2_mtt4u")
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
