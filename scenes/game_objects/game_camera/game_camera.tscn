@@ -13,3 +13,4 @@ script = ExtResource("2_317i2")
 
 [node name="Follow" type="Node" parent="StateMachine"]
 script = ExtResource("3_nujpa")
+smooth_speed = 25
