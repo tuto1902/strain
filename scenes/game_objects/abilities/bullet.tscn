@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cb0afvsqwrupk"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/abilities/bullet.gd" id="1_hl50i"]
-[ext_resource type="Texture2D" uid="uid://dk68ysxjmh7ws" path="res://assets/sprites/sheet_projectiles.png" id="2_2qxmb"]
+[ext_resource type="Texture2D" uid="uid://dsu6bm2iw762f" path="res://assets/sprites/sheet_projectiles.png" id="2_2qxmb"]
 [ext_resource type="Script" path="res://assets/resources/abilities/ability_stats.gd" id="2_celdl"]
 [ext_resource type="PackedScene" uid="uid://idlhwijeod20" path="res://scenes/components/hit_box_component.tscn" id="3_gnled"]
 [ext_resource type="AudioStream" uid="uid://vu017s3gdy4l" path="res://assets/sfx/sfx_virus_whoosh.wav" id="4_ujo1l"]
