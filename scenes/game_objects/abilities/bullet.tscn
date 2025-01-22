@@ -39,6 +39,7 @@ shape = SubResource("CircleShape2D_q0vbe")
 
 [node name="BulletSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ujo1l")
+volume_db = -9.0
 autoplay = true
 
 [node name="StateMachine" type="Node" parent="."]
