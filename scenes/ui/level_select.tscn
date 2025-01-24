@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://5uf4cfwj7cob"]
+
+[ext_resource type="Texture2D" uid="uid://c8yjuwxp260nr" path="res://assets/sprites/node_icons.png" id="1_algb0"]
+[ext_resource type="PackedScene" uid="uid://ck20hxhe3h3oo" path="res://scenes/ui/level_icon.tscn" id="1_d6rlj"]
+[ext_resource type="Script" path="res://scenes/ui/level_select.gd" id="1_xwpoj"]
+[ext_resource type="Texture2D" uid="uid://bfehdk6pwvbfk" path="res://assets/resources/levels/shop_level_icon_texture.tres" id="3_s5xyt"]
+[ext_resource type="Texture2D" uid="uid://dd0dnokqghblb" path="res://assets/resources/levels/arena_level_icon_texture.tres" id="4_aajpx"]
+[ext_resource type="Texture2D" uid="uid://e4peej1eshay" path="res://assets/resources/levels/mutation_level_icon_texture.tres" id="4_g4hgm"]
+[ext_resource type="PackedScene" uid="uid://wkydlcvd5yg8" path="res://scenes/ui/player_icon.tscn" id="6_m1cx6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulx1o"]
+atlas = ExtResource("1_algb0")
+region = Rect2(304, 0, 16, 32)
+
+[node name="LevelSelect" type="Control" node_paths=PackedStringArray("start_level")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xwpoj")
+start_level = NodePath("Level1")
+
+[node name="Connector1" type="Node2D" parent="."]
+position = Vector2(76, 188)
+
+[node name="Sprite2D" type="Sprite2D" parent="Connector1"]
+position = Vector2(18, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Connector1"]
+position = Vector2(36, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Connector1"]
+position = Vector2(54, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Connector2" type="Node2D" parent="."]
+position = Vector2(153, 183)
+rotation = -1.5708
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Connector2"]
+position = Vector2(18, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Connector2"]
+position = Vector2(36, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Connector2"]
+position = Vector2(54, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Connector3" type="Node2D" parent="."]
+position = Vector2(158, 190)
+rotation = 0.63879
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Connector3"]
+position = Vector2(18, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Connector3"]
+position = Vector2(36, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Connector3"]
+position = Vector2(54, 0)
+texture = SubResource("AtlasTexture_ulx1o")
+
+[node name="Level1" parent="." node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 146.0
+offset_right = 103.0
+offset_bottom = 210.0
+level_name = "fight"
+level_icon = ExtResource("4_aajpx")
+level_right = NodePath("../Level2")
+
+[node name="Level2" parent="." node_paths=PackedStringArray("level_left", "level_right", "level_up", "level_down") instance=ExtResource("1_d6rlj")]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 146.0
+offset_right = 185.0
+offset_bottom = 210.0
+level_name = "shop"
+level_icon = ExtResource("3_s5xyt")
+level_left = NodePath("../Level1")
+level_right = NodePath("../Level4")
+level_up = NodePath("../Level3")
+level_down = NodePath("../Level4")
+
+[node name="Level3" parent="." node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 64.0
+offset_right = 185.0
+offset_bottom = 128.0
+level_name = "fight"
+level_icon = ExtResource("4_aajpx")
+level_down = NodePath("../Level2")
+
+[node name="Level4" parent="." node_paths=PackedStringArray("level_left", "level_up") instance=ExtResource("1_d6rlj")]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 194.0
+offset_right = 253.0
+offset_bottom = 258.0
+level_name = "mutate"
+level_icon = ExtResource("4_g4hgm")
+level_left = NodePath("../Level2")
+level_up = NodePath("../Level2")
+
+[node name="PlayerIcon" parent="." instance=ExtResource("6_m1cx6")]
+position = Vector2(36, 187)
