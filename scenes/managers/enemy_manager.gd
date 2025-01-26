@@ -39,9 +39,12 @@ func _on_spawn_timer_timeout():
 		push_error("Missing enemy scene in resource")
 		return
 	var enemy_instance = enemy_scene.instantiate() as Node2D
-	var enemy_stats = enemy_stats["level_" + str(current_enemy_level)]
-	if enemy_stats:
-		enemy_instance.health_multiplier = enemy_stats["health_multiplier"]
-		enemy_instance.speed_multiplier = enemy_stats["speed_multiplier"]
-	get_parent().add_child(enemy_instance)
+	var current_enemy_stats = enemy_stats["level_" + str(current_enemy_level)]
+	if current_enemy_stats:
+		enemy_instance.health_multiplier = current_enemy_stats["health_multiplier"]
+		enemy_instance.speed_multiplier = current_enemy_stats["speed_multiplier"]
+	
+	var entities_layer = get_tree().get_first_node_in_group("EntitiesLayer")
+	
+	entities_layer.add_child(enemy_instance)
 	enemy_instance.global_position = spawn_postition

@@ -7,3 +7,5 @@ class_name AbilityStats extends Resource
 @export var damage: float
 @export var speed: float
 @export var size: float
+@export var max_range: float
+@export var rate: float

@@ -19,10 +19,15 @@ tile_set = ExtResource("1_8u0wg")
 
 [node name="GameCamera" parent="." instance=ExtResource("2_d4q3w")]
 
-[node name="Player" parent="." instance=ExtResource("1_jiux0")]
-position = Vector2(317, 184)
-
 [node name="CombatMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_sn20e")
 volume_db = -13.0
 autoplay = true
+
+[node name="Entities" type="Node2D" parent="." groups=["EntitiesLayer"]]
+y_sort_enabled = true
+
+[node name="Player" parent="Entities" instance=ExtResource("1_jiux0")]
+position = Vector2(317, 184)
+
+[node name="Foreground" type="Node2D" parent="." groups=["ForegroundLayer"]]

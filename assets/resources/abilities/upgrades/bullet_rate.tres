@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cpo6f22y5puww"]
+
+[ext_resource type="Script" path="res://assets/resources/abilities/upgrades/ability_upgrade.gd" id="1_bt2v4"]
+
+[resource]
+script = ExtResource("1_bt2v4")
+id = "bullet_rate"
+name = "Ranged Attack Rate"
+description = "10% Increase ranged attack rate"

@@ -57,8 +57,14 @@ state_machine = NodePath("EnemyStateMachine")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_rdei7")]
 
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("3_s610a")
+
+[node name="Chase" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_3tm3e")
+
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_31key")]
-position = Vector2(0, -1)
+position = Vector2(0, -8)
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
@@ -66,15 +72,11 @@ shape = SubResource("CircleShape2D_1njj5")
 debug_color = Color(0.889279, 0.283307, 0.426508, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_2vy6f")
 animation = &"Move"
 frame_progress = 0.01413
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_2ey2c")
-
-[node name="EnemyStateMachine" type="Node" parent="."]
-script = ExtResource("3_s610a")
-
-[node name="Chase" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("4_3tm3e")

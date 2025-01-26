@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://5uf4cfwj7cob"]
+[gd_scene load_steps=19 format=3 uid="uid://5uf4cfwj7cob"]
 
 [ext_resource type="PackedScene" uid="uid://ck20hxhe3h3oo" path="res://scenes/ui/level_icon.tscn" id="1_d6rlj"]
 [ext_resource type="Script" path="res://scenes/ui/level_select.gd" id="1_xwpoj"]
+[ext_resource type="PackedScene" uid="uid://dkopdg6ckteei" path="res://scenes/ui/ability_upgrade_screen.tscn" id="3_6oo87"]
 [ext_resource type="Texture2D" uid="uid://50d5ytbgsdg1" path="res://assets/resources/levels/arena_level_locked_icon_texture.tres" id="3_eeget"]
 [ext_resource type="Texture2D" uid="uid://dd0dnokqghblb" path="res://assets/resources/levels/arena_level_icon_texture.tres" id="4_aajpx"]
 [ext_resource type="Texture2D" uid="uid://devw5mt1f1kv6" path="res://assets/resources/levels/arena_level_cleared_icon_texture.tres" id="5_gn3h8"]
@@ -15,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://2g2o8qpq304b" path="res://assets/music/mus_node_select.wav" id="13_q74rg"]
 [ext_resource type="AudioStream" uid="uid://cvxmytgy43t4o" path="res://assets/sfx/sfx_select.wav" id="14_hsm2i"]
 [ext_resource type="AudioStream" uid="uid://bm1d6dkmq4ixl" path="res://assets/sfx/sfx_confirm.wav" id="15_6orni"]
+[ext_resource type="PackedScene" uid="uid://dqygpcjo2gpl6" path="res://scenes/managers/upgrade_manager.tscn" id="16_rs0rv"]
 
 [sub_resource type="Gradient" id="Gradient_oakj7"]
 colors = PackedColorArray(0.811765, 0.337255, 0.239216, 1, 0.870588, 0.619608, 0.254902, 1)
@@ -27,207 +29,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xwpoj")
-start_level = NodePath("Level1")
+start_level = NodePath("Levels/Level1")
 
-[node name="ConnectLine1" type="Line2D" parent="."]
-points = PackedVector2Array(71, 188, 153, 188)
-closed = true
-gradient = SubResource("Gradient_oakj7")
-
-[node name="ConnectLine2" type="Line2D" parent="."]
-points = PackedVector2Array(153, 188, 153, 106)
-closed = true
-gradient = SubResource("Gradient_oakj7")
-
-[node name="ConnectLine3" type="Line2D" parent="."]
-points = PackedVector2Array(153, 188, 232, 188)
-gradient = SubResource("Gradient_oakj7")
-antialiased = true
-
-[node name="ConnectLine4" type="Line2D" parent="."]
-position = Vector2(0, -82)
-points = PackedVector2Array(153, 188, 232, 188)
-gradient = SubResource("Gradient_oakj7")
-antialiased = true
-
-[node name="ConnectLine5" type="Line2D" parent="."]
-position = Vector2(79, 82)
-points = PackedVector2Array(153, 106, 153, 188)
-closed = true
-gradient = SubResource("Gradient_oakj7")
-
-[node name="ConnectLine6" type="Line2D" parent="."]
-position = Vector2(79, 82)
-points = PackedVector2Array(153, 188, 232, 188)
-gradient = SubResource("Gradient_oakj7")
-antialiased = true
-
-[node name="ConnectLine10" type="Line2D" parent="."]
-position = Vector2(158, 82)
-points = PackedVector2Array(153, 188, 232, 188)
-gradient = SubResource("Gradient_oakj7")
-antialiased = true
-
-[node name="ConnectLine7" type="Line2D" parent="."]
-position = Vector2(79, -82)
-points = PackedVector2Array(153, 188, 232, 188)
-gradient = SubResource("Gradient_oakj7")
-antialiased = true
-
-[node name="ConnectLine8" type="Line2D" parent="."]
-position = Vector2(158, 0)
-points = PackedVector2Array(153, 106, 153, 188)
-closed = true
-gradient = SubResource("Gradient_oakj7")
-
-[node name="ConnectLine9" type="Line2D" parent="."]
-position = Vector2(158, 82)
-points = PackedVector2Array(153, 106, 153, 188)
-closed = true
-gradient = SubResource("Gradient_oakj7")
-
-[node name="Level1" parent="." node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 146.0
-offset_right = 103.0
-offset_bottom = 210.0
-level_name = "Fight"
-level_right = NodePath("../Level2")
-locked_icon_texture = ExtResource("3_eeget")
-unlocked_icon_texture = ExtResource("4_aajpx")
-cleared_icon_texture = ExtResource("5_gn3h8")
-
-[node name="Level2" parent="." node_paths=PackedStringArray("level_right", "level_up") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 121.0
-offset_top = 146.0
-offset_right = 185.0
-offset_bottom = 210.0
-level_index = 2
-level_name = "Shop"
-level_right = NodePath("../Level4")
-level_up = NodePath("../Level3")
-level_status = "Locked"
-locked_icon_texture = ExtResource("6_b3xq6")
-unlocked_icon_texture = ExtResource("7_00jm5")
-cleared_icon_texture = ExtResource("8_p5eap")
-
-[node name="Level3" parent="." node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 121.0
-offset_top = 64.0
-offset_right = 185.0
-offset_bottom = 128.0
-level_index = 3
-level_name = "Fight"
-level_right = NodePath("../Level6")
-level_status = "Locked"
-locked_icon_texture = ExtResource("3_eeget")
-unlocked_icon_texture = ExtResource("4_aajpx")
-cleared_icon_texture = ExtResource("5_gn3h8")
-
-[node name="Level4" parent="." node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 146.0
-offset_right = 264.0
-offset_bottom = 210.0
-level_index = 4
-level_name = "Mutate"
-level_down = NodePath("../Level9")
-level_status = "Locked"
-locked_icon_texture = ExtResource("9_7y2so")
-unlocked_icon_texture = ExtResource("10_0e5c0")
-cleared_icon_texture = ExtResource("11_dbhhx")
-
-[node name="Level5" parent="." node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 228.0
-offset_right = 343.0
-offset_bottom = 292.0
-level_index = 5
-level_name = "Shop"
-level_right = NodePath("../Level10")
-level_status = "Locked"
-locked_icon_texture = ExtResource("6_b3xq6")
-unlocked_icon_texture = ExtResource("7_00jm5")
-cleared_icon_texture = ExtResource("8_p5eap")
-
-[node name="Level6" parent="." node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 64.0
-offset_right = 264.0
-offset_bottom = 128.0
-level_index = 4
-level_name = "Mutate"
-level_right = NodePath("../Level7")
-level_status = "Locked"
-locked_icon_texture = ExtResource("9_7y2so")
-unlocked_icon_texture = ExtResource("10_0e5c0")
-cleared_icon_texture = ExtResource("11_dbhhx")
-
-[node name="Level7" parent="." node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 64.0
-offset_right = 343.0
-offset_bottom = 128.0
-level_index = 3
-level_name = "Fight"
-level_down = NodePath("../Level8")
-level_status = "Locked"
-locked_icon_texture = ExtResource("3_eeget")
-unlocked_icon_texture = ExtResource("4_aajpx")
-cleared_icon_texture = ExtResource("5_gn3h8")
-
-[node name="Level8" parent="." node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 146.0
-offset_right = 343.0
-offset_bottom = 210.0
-level_index = 3
-level_name = "Fight"
-level_down = NodePath("../Level5")
-level_status = "Locked"
-locked_icon_texture = ExtResource("3_eeget")
-unlocked_icon_texture = ExtResource("4_aajpx")
-cleared_icon_texture = ExtResource("5_gn3h8")
-
-[node name="Level9" parent="." node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 228.0
-offset_right = 264.0
-offset_bottom = 292.0
-level_index = 3
-level_name = "Fight"
-level_right = NodePath("../Level5")
-level_status = "Locked"
-locked_icon_texture = ExtResource("3_eeget")
-unlocked_icon_texture = ExtResource("4_aajpx")
-cleared_icon_texture = ExtResource("5_gn3h8")
-
-[node name="Level10" parent="." instance=ExtResource("1_d6rlj")]
-layout_mode = 0
-offset_left = 358.0
-offset_top = 228.0
-offset_right = 422.0
-offset_bottom = 292.0
-level_index = 3
-level_name = "Fight"
-level_status = "Locked"
-locked_icon_texture = ExtResource("3_eeget")
-unlocked_icon_texture = ExtResource("4_aajpx")
-cleared_icon_texture = ExtResource("5_gn3h8")
-
-[node name="PlayerIcon" parent="." instance=ExtResource("6_m1cx6")]
-position = Vector2(36, 187)
+[node name="UpgradeManager" parent="." instance=ExtResource("16_rs0rv")]
+ability_upgrade_scene = ExtResource("3_6oo87")
 
 [node name="LevelSelectMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("13_q74rg")
 volume_db = -13.0
 autoplay = true
@@ -239,3 +47,208 @@ volume_db = -9.0
 [node name="LevelConfirmSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6orni")
 volume_db = -9.0
+
+[node name="ConnectorLines" type="Node2D" parent="."]
+
+[node name="ConnectLine1" type="Line2D" parent="ConnectorLines"]
+points = PackedVector2Array(71, 188, 153, 188)
+closed = true
+gradient = SubResource("Gradient_oakj7")
+
+[node name="ConnectLine2" type="Line2D" parent="ConnectorLines"]
+points = PackedVector2Array(153, 188, 153, 106)
+closed = true
+gradient = SubResource("Gradient_oakj7")
+
+[node name="ConnectLine3" type="Line2D" parent="ConnectorLines"]
+points = PackedVector2Array(153, 188, 232, 188)
+gradient = SubResource("Gradient_oakj7")
+antialiased = true
+
+[node name="ConnectLine4" type="Line2D" parent="ConnectorLines"]
+position = Vector2(0, -82)
+points = PackedVector2Array(153, 188, 232, 188)
+gradient = SubResource("Gradient_oakj7")
+antialiased = true
+
+[node name="ConnectLine5" type="Line2D" parent="ConnectorLines"]
+position = Vector2(79, 82)
+points = PackedVector2Array(153, 106, 153, 188)
+closed = true
+gradient = SubResource("Gradient_oakj7")
+
+[node name="ConnectLine6" type="Line2D" parent="ConnectorLines"]
+position = Vector2(79, 82)
+points = PackedVector2Array(153, 188, 232, 188)
+gradient = SubResource("Gradient_oakj7")
+antialiased = true
+
+[node name="ConnectLine10" type="Line2D" parent="ConnectorLines"]
+position = Vector2(158, 82)
+points = PackedVector2Array(153, 188, 232, 188)
+gradient = SubResource("Gradient_oakj7")
+antialiased = true
+
+[node name="ConnectLine7" type="Line2D" parent="ConnectorLines"]
+position = Vector2(79, -82)
+points = PackedVector2Array(153, 188, 232, 188)
+gradient = SubResource("Gradient_oakj7")
+antialiased = true
+
+[node name="ConnectLine8" type="Line2D" parent="ConnectorLines"]
+position = Vector2(158, 0)
+points = PackedVector2Array(153, 106, 153, 188)
+closed = true
+gradient = SubResource("Gradient_oakj7")
+
+[node name="ConnectLine9" type="Line2D" parent="ConnectorLines"]
+position = Vector2(158, 82)
+points = PackedVector2Array(153, 106, 153, 188)
+closed = true
+gradient = SubResource("Gradient_oakj7")
+
+[node name="Levels" type="Node2D" parent="."]
+position = Vector2(358, 228)
+
+[node name="Level1" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
+offset_left = -319.0
+offset_top = -82.0
+offset_right = -255.0
+offset_bottom = -18.0
+level_id = "level_1"
+level_name = "Fight"
+level_type = "arena"
+level_right = NodePath("../Level2")
+locked_icon_texture = ExtResource("3_eeget")
+unlocked_icon_texture = ExtResource("4_aajpx")
+cleared_icon_texture = ExtResource("5_gn3h8")
+
+[node name="Level2" parent="Levels" node_paths=PackedStringArray("level_right", "level_up") instance=ExtResource("1_d6rlj")]
+offset_left = -237.0
+offset_top = -82.0
+offset_right = -173.0
+offset_bottom = -18.0
+level_id = "level_2"
+level_index = 2
+level_name = "Shop"
+level_type = "shop"
+level_right = NodePath("../Level4")
+level_up = NodePath("../Level3")
+level_status = "Locked"
+locked_icon_texture = ExtResource("6_b3xq6")
+unlocked_icon_texture = ExtResource("7_00jm5")
+cleared_icon_texture = ExtResource("8_p5eap")
+
+[node name="Level3" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
+offset_left = -237.0
+offset_top = -164.0
+offset_right = -173.0
+offset_bottom = -100.0
+level_id = "level_3"
+level_index = 3
+level_name = "Fight"
+level_type = "arena"
+level_right = NodePath("../Level6")
+level_status = "Locked"
+locked_icon_texture = ExtResource("3_eeget")
+unlocked_icon_texture = ExtResource("4_aajpx")
+cleared_icon_texture = ExtResource("5_gn3h8")
+
+[node name="Level4" parent="Levels" node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]
+offset_left = -158.0
+offset_top = -82.0
+offset_right = -94.0
+offset_bottom = -18.0
+level_id = "level_4"
+level_index = 4
+level_name = "Mutate"
+level_type = "mutate"
+level_down = NodePath("../Level9")
+level_status = "Locked"
+locked_icon_texture = ExtResource("9_7y2so")
+unlocked_icon_texture = ExtResource("10_0e5c0")
+cleared_icon_texture = ExtResource("11_dbhhx")
+
+[node name="Level5" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
+offset_left = -79.0
+offset_right = -15.0
+level_id = "level_5"
+level_index = 5
+level_name = "Shop"
+level_type = "shop"
+level_right = NodePath("../Level10")
+level_status = "Locked"
+locked_icon_texture = ExtResource("6_b3xq6")
+unlocked_icon_texture = ExtResource("7_00jm5")
+cleared_icon_texture = ExtResource("8_p5eap")
+
+[node name="Level6" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
+offset_left = -158.0
+offset_top = -164.0
+offset_right = -94.0
+offset_bottom = -100.0
+level_id = "level_6"
+level_index = 6
+level_name = "Mutate"
+level_type = "mutate"
+level_right = NodePath("../Level7")
+level_status = "Locked"
+locked_icon_texture = ExtResource("9_7y2so")
+unlocked_icon_texture = ExtResource("10_0e5c0")
+cleared_icon_texture = ExtResource("11_dbhhx")
+
+[node name="Level7" parent="Levels" node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]
+offset_left = -79.0
+offset_top = -164.0
+offset_right = -15.0
+offset_bottom = -100.0
+level_id = "level_7"
+level_index = 7
+level_name = "Fight"
+level_type = "arena"
+level_down = NodePath("../Level8")
+level_status = "Locked"
+locked_icon_texture = ExtResource("3_eeget")
+unlocked_icon_texture = ExtResource("4_aajpx")
+cleared_icon_texture = ExtResource("5_gn3h8")
+
+[node name="Level8" parent="Levels" node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]
+offset_left = -79.0
+offset_top = -82.0
+offset_right = -15.0
+offset_bottom = -18.0
+level_id = "level_8"
+level_index = 8
+level_name = "Fight"
+level_type = "arena"
+level_down = NodePath("../Level5")
+level_status = "Locked"
+locked_icon_texture = ExtResource("3_eeget")
+unlocked_icon_texture = ExtResource("4_aajpx")
+cleared_icon_texture = ExtResource("5_gn3h8")
+
+[node name="Level9" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
+offset_left = -158.0
+offset_right = -94.0
+level_id = "level_9"
+level_index = 9
+level_name = "Fight"
+level_type = "arena"
+level_right = NodePath("../Level5")
+level_status = "Locked"
+locked_icon_texture = ExtResource("3_eeget")
+unlocked_icon_texture = ExtResource("4_aajpx")
+cleared_icon_texture = ExtResource("5_gn3h8")
+
+[node name="Level10" parent="Levels" instance=ExtResource("1_d6rlj")]
+level_id = "level_10"
+level_index = 10
+level_name = "Fight"
+level_type = "arena"
+level_status = "Locked"
+locked_icon_texture = ExtResource("3_eeget")
+unlocked_icon_texture = ExtResource("4_aajpx")
+cleared_icon_texture = ExtResource("5_gn3h8")
+
+[node name="PlayerIcon" parent="." instance=ExtResource("6_m1cx6")]
+position = Vector2(36, 187)
