@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3xkn7eb2hyd6"]
+
+[ext_resource type="Script" path="res://scenes/managers/game_manager.gd" id="1_uudj2"]
+[ext_resource type="PackedScene" uid="uid://5uf4cfwj7cob" path="res://scenes/ui/level_select.tscn" id="2_gm1jc"]
+[ext_resource type="PackedScene" uid="uid://dosj30w6nut56" path="res://scenes/autoload/level_select_manager.tscn" id="2_ww0a0"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_uudj2")
+
+[node name="LevelSelectManager" parent="." instance=ExtResource("2_ww0a0")]
+
+[node name="ArenaScene" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelSelect" parent="GUI" instance=ExtResource("2_gm1jc")]
+layout_mode = 1

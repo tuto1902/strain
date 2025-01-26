@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var state_machine: StateMachine
 
 func _ready():
+	PlayerManager.player = self
 	state_machine.init(self)
 
 func _physics_process(delta: float) -> void:

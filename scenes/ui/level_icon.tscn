@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/ui/level_icon.gd" id="1_d4qjo"]
 [ext_resource type="FontFile" uid="uid://ps1cpp0lmmal" path="res://assets/fonts/wellbutrin.ttf" id="2_ryyk5"]
 
-[node name="Control" type="VBoxContainer"]
+[node name="LevelIcon" type="VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0

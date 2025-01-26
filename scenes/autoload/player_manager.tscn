@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4ypw16ewsosk"]
+[gd_scene load_steps=4 format=3 uid="uid://b4ypw16ewsosk"]
 
 [ext_resource type="Script" path="res://scenes/autoload/player_manager.gd" id="1_x27wi"]
+[ext_resource type="Script" path="res://assets/resources/abilities/base_ability.gd" id="2_4766a"]
+[ext_resource type="Resource" uid="uid://bxk27vdbho5yh" path="res://assets/resources/abilities/bullet_ability.tres" id="3_kax77"]
 
 [node name="PlayerManager" type="Node"]
 script = ExtResource("1_x27wi")
+current_abilities = Array[ExtResource("2_4766a")]([ExtResource("3_kax77")])

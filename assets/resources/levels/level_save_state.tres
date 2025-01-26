@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cbajspgrcyld4"]
+
+[ext_resource type="Script" path="res://assets/resources/levels/level_save_state.gd" id="1_kybwg"]
+
+[resource]
+script = ExtResource("1_kybwg")
