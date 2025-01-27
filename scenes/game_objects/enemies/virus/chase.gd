@@ -16,6 +16,6 @@ func handle_frame(delta) -> void:
 
 func get_direction_to_player():
 	var player = PlayerManager.player
-	if player:
+	if player != null:
 		return (player.global_position - state_owner.global_position).normalized()
 	return Vector2.ZERO
