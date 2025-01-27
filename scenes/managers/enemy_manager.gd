@@ -25,7 +25,6 @@ var current_enemy_level = 1
 func _on_spawn_timer_timeout():
 	var player = PlayerManager.player
 	if player == null:
-		push_error("Mising player")
 		return
 	
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0.0, TAU))
