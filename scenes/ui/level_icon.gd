@@ -23,6 +23,21 @@ extends VBoxContainer
 
 func _ready():
 	label.text = level_name
+	update_icon()
+
+
+func _process(_delta):
+	if Engine.is_editor_hint():
+		label.text = level_name
+		update_icon()
+
+
+func unlock():
+	level_status = "Unlocked"
+	LevelSelectManager.update_level_status(level_id, level_status)
+	update_icon()
+
+func update_icon():
 	match level_status:
 		"Unlocked":
 			if unlocked_icon_texture:
@@ -34,36 +49,14 @@ func _ready():
 			if cleared_icon_texture:
 				node_icon.texture = cleared_icon_texture
 
-
-func _process(_delta):
-	if Engine.is_editor_hint():
-		label.text = level_name
-		match level_status:
-			"Unlocked":
-				if unlocked_icon_texture:
-					node_icon.texture = unlocked_icon_texture
-			"Locked":
-				if locked_icon_texture:
-					node_icon.texture = locked_icon_texture
-			"Cleared":
-				if cleared_icon_texture:
-					node_icon.texture = cleared_icon_texture
-
-
-func unlock():
-	level_status = "Unlocked"
-	LevelSelectManager.update_level_status(level_id, level_status)
-	node_icon.texture = unlocked_icon_texture
-
-
 func level_cleared():
 	level_status = "Cleared"
 	LevelSelectManager.update_level_status(level_id, level_status)
-	node_icon.texture = cleared_icon_texture
+	update_icon()
 
 
 func set_as_not_current():
-	LevelSelectManager.set_level_as_not_current(level_id)
+	LevelSelectManager.set_level_as_not_current(level_id, level_status)
 
 func set_as_current():
-	LevelSelectManager.set_level_as_current(level_id)
+	LevelSelectManager.set_level_as_current(level_id, level_status)

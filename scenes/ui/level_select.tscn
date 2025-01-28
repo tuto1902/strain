@@ -137,7 +137,6 @@ level_up = NodePath("../Level3")
 level_status = "Locked"
 locked_icon_texture = ExtResource("6_b3xq6")
 unlocked_icon_texture = ExtResource("7_00jm5")
-cleared_icon_texture = ExtResource("8_p5eap")
 
 [node name="Level3" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
 offset_left = -237.0
