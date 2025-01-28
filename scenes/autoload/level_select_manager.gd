@@ -16,22 +16,18 @@ func update_level_status(level_id: String, status: String):
 		}
 
 
-func set_level_as_current(level_id: String):
-	if level_state.has(level_id):
-		level_state[level_id]["is_current"] = true
-	else:
-		level_state[level_id] = {
-			"is_current": true,
-		}
+func set_level_as_current(level_id: String, level_status: String):
+	level_state[level_id] = {
+		"is_current": true,
+		"status": level_status
+	}
 
 
-func set_level_as_not_current(level_id: String):
-	if level_state.has(level_id):
-		level_state[level_id]["is_current"] = false
-	else:
-		level_state[level_id] = {
-			"is_current": false,
-		}
+func set_level_as_not_current(level_id: String, level_status: String):
+	level_state[level_id] = {
+		"is_current": false,
+		"status": level_status
+	}
 
 
 func get_level_status(level_id) -> String:
@@ -41,6 +37,10 @@ func get_level_status(level_id) -> String:
 
 
 func is_current_level(level_id) -> bool:
-	if level_state.has(level_id):
+	if level_state.has(level_id) and level_state[level_id].has("is_current"):
 		return level_state[level_id]["is_current"]
 	return false
+
+
+func reset():
+	level_state = {}

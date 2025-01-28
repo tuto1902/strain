@@ -62,6 +62,7 @@ script = ExtResource("3_s610a")
 
 [node name="Chase" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("4_3tm3e")
+max_speed = 65
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_31key")]
 position = Vector2(0, -8)

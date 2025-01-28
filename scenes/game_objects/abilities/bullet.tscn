@@ -9,10 +9,10 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nq6l1"]
 atlas = ExtResource("2_2qxmb")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q0vbe"]
-radius = 4.0
+radius = 7.0
 
 [node name="Bullet" type="Node2D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_hl50i")

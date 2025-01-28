@@ -53,7 +53,7 @@ func on_damage_timer_timeout():
 
 
 func on_death():
-	#TO-DO: Show the Game Over screen at this point
+	GameEvents.emit_player_died()
 	queue_free()
 	#get_tree().paused = true
 

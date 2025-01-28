@@ -11,6 +11,9 @@ func _ready():
 	current_gui_scene = $GUI/LevelSelect
 
 func change_gui_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
+	if current_arena_scene != null:
+		current_arena_scene.queue_free()
+	
 	if current_gui_scene != null:
 		if delete:
 			current_gui_scene.queue_free()
@@ -25,7 +28,7 @@ func change_gui_scene(new_scene: String, delete: bool = true, keep_running: bool
 
 func change_arena_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
 	if current_gui_scene != null:
-		gui.remove_child(current_gui_scene)
+		current_gui_scene.queue_free()
 	
 	if current_arena_scene != null:
 		if delete:

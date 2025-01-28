@@ -1,14 +1,25 @@
-[gd_scene load_steps=8 format=4 uid="uid://cxb156ikgmi1i"]
+[gd_scene load_steps=12 format=4 uid="uid://cxb156ikgmi1i"]
 
 [ext_resource type="TileSet" uid="uid://dcvat53iieyju" path="res://assets/resources/arena_tileset.tres" id="1_8u0wg"]
 [ext_resource type="PackedScene" uid="uid://btwmfhhb5qmb2" path="res://scenes/game_objects/player/player.tscn" id="1_jiux0"]
 [ext_resource type="PackedScene" uid="uid://c75osm4c0nk3f" path="res://scenes/managers/enemy_manager.tscn" id="1_riaef"]
+[ext_resource type="PackedScene" uid="uid://dkg8qaspi3446" path="res://scenes/ui/arena_time_ui.tscn" id="1_xstpp"]
 [ext_resource type="PackedScene" uid="uid://dshog2dxeua0y" path="res://scenes/game_objects/game_camera/game_camera.tscn" id="2_d4q3w"]
+[ext_resource type="PackedScene" uid="uid://bg1tn0re57moo" path="res://scenes/managers/arena_manager.tscn" id="2_jftvn"]
 [ext_resource type="Script" path="res://assets/resources/enemies/basic_enemy.gd" id="2_l5n0j"]
 [ext_resource type="AudioStream" uid="uid://b8datgbh1x8u3" path="res://assets/music/mus_combat.wav" id="3_sn20e"]
 [ext_resource type="Resource" uid="uid://dphrjph0wfrro" path="res://assets/resources/enemies/virus_stage_1.tres" id="3_u2jno"]
+[ext_resource type="PackedScene" uid="uid://1fnvyko4bbtw" path="res://scenes/ui/victory_screen.tscn" id="3_x1jka"]
+[ext_resource type="PackedScene" uid="uid://bs1wnt734pv3r" path="res://scenes/ui/game_over_screen.tscn" id="4_x2vb0"]
 
 [node name="TestArena" type="Node2D"]
+
+[node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_xstpp")]
+arena_time_manager = NodePath("../ArenaManager")
+
+[node name="ArenaManager" parent="." instance=ExtResource("2_jftvn")]
+victory_screen_scene = ExtResource("3_x1jka")
+game_over_screen_scene = ExtResource("4_x2vb0")
 
 [node name="EnemyManager" parent="." instance=ExtResource("1_riaef")]
 enemy_pool = Array[ExtResource("2_l5n0j")]([ExtResource("3_u2jno")])
