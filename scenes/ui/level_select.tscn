@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5uf4cfwj7cob"]
+[gd_scene load_steps=21 format=3 uid="uid://5uf4cfwj7cob"]
 
 [ext_resource type="PackedScene" uid="uid://ck20hxhe3h3oo" path="res://scenes/ui/level_icon.tscn" id="1_d6rlj"]
 [ext_resource type="Script" path="res://scenes/ui/level_select.gd" id="1_xwpoj"]
@@ -17,9 +17,14 @@
 [ext_resource type="AudioStream" uid="uid://cvxmytgy43t4o" path="res://assets/sfx/sfx_select.wav" id="14_hsm2i"]
 [ext_resource type="AudioStream" uid="uid://bm1d6dkmq4ixl" path="res://assets/sfx/sfx_confirm.wav" id="15_6orni"]
 [ext_resource type="PackedScene" uid="uid://dqygpcjo2gpl6" path="res://scenes/managers/upgrade_manager.tscn" id="16_rs0rv"]
+[ext_resource type="Texture2D" uid="uid://beco2sd6hg7e5" path="res://assets/sprites/cell_player_2.png" id="18_6cn3b"]
 
 [sub_resource type="Gradient" id="Gradient_oakj7"]
 colors = PackedColorArray(0.811765, 0.337255, 0.239216, 1, 0.870588, 0.619608, 0.254902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr38c"]
+atlas = ExtResource("18_6cn3b")
+region = Rect2(32, 0, 32, 32)
 
 [node name="LevelSelect" type="Control" node_paths=PackedStringArray("start_level")]
 layout_mode = 3
@@ -250,4 +255,6 @@ unlocked_icon_texture = ExtResource("4_aajpx")
 cleared_icon_texture = ExtResource("5_gn3h8")
 
 [node name="PlayerIcon" parent="." instance=ExtResource("6_m1cx6")]
-position = Vector2(36, 187)
+position = Vector2(25, 138)
+scale = Vector2(1, 1)
+texture = SubResource("AtlasTexture_dr38c")

@@ -7,6 +7,7 @@ class_name Bullet extends Ability
 
 func _ready():
 	hit_box.damage = stats.damage
+	sfx_player.pitch_scale = randf_range(0.9, 1.2)
 	state_machine.init(self)
 
 func _process(delta):

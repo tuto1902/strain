@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://btwmfhhb5qmb2"]
+[gd_scene load_steps=17 format=3 uid="uid://btwmfhhb5qmb2"]
 
-[ext_resource type="Texture2D" uid="uid://bh3hbx7rjiewn" path="res://icon.svg" id="1_84t1u"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="1_fo8d4"]
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_wqs5c"]
 [ext_resource type="Script" path="res://scenes/game_objects/player/idle.gd" id="2_2wdhh"]
 [ext_resource type="Script" path="res://scenes/game_objects/player/move.gd" id="3_1gqxp"]
 [ext_resource type="PackedScene" uid="uid://bcbtrueha5myu" path="res://assets/resources/abilities/ability_manager.tscn" id="5_c58m6"]
 [ext_resource type="PackedScene" uid="uid://f3w7wof0i5v8" path="res://scenes/components/health_component.tscn" id="5_gdwy5"]
+[ext_resource type="Texture2D" uid="uid://beco2sd6hg7e5" path="res://assets/sprites/cell_player_2.png" id="7_xsd51"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnvx6"]
 bg_color = Color(0.203922, 0.109804, 0.152941, 1)
@@ -21,11 +21,47 @@ border_width_bottom = 2
 border_color = Color(0.203922, 0.109804, 0.152941, 1)
 anti_aliasing = false
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7syb"]
+atlas = ExtResource("7_xsd51")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bltyd"]
+atlas = ExtResource("7_xsd51")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjb5o"]
+atlas = ExtResource("7_xsd51")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvfip"]
+atlas = ExtResource("7_xsd51")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhwau"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7syb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bltyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjb5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvfip")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4kw0"]
-radius = 16.0
+radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycvrb"]
-radius = 15.0333
+radius = 10.0499
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine") groups=["Player"]]
 collision_layer = 2
@@ -52,9 +88,9 @@ one_shot = true
 [node name="HealthBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(32, 6)
 offset_left = -16.0
-offset_top = -37.0
+offset_top = -34.0
 offset_right = 16.0
-offset_bottom = -31.0
+offset_bottom = -28.0
 pivot_offset = Vector2(16, 3)
 theme_override_styles/background = SubResource("StyleBoxFlat_nnvx6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nxbci")
@@ -62,14 +98,16 @@ max_value = 1.0
 value = 0.5
 show_percentage = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_84t1u")
+sprite_frames = SubResource("SpriteFrames_hhwau")
+autoplay = "default"
+frame = 3
+frame_progress = 0.243145
+speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_h4kw0")
 
 [node name="CollisionArea" type="Area2D" parent="."]
@@ -77,6 +115,6 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
-position = Vector2(0, -12)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_ycvrb")
 debug_color = Color(0.740478, 0.459663, 0.218635, 0.42)
