@@ -8,7 +8,7 @@ var current_arena_scene: Node2D
 
 func _ready():
 	Global.game_manager = self
-	current_gui_scene = $GUI/LevelSelect
+	current_gui_scene = $GUI/MainMenu
 
 func change_gui_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
 	if current_arena_scene != null:

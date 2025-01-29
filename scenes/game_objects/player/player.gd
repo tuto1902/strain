@@ -33,7 +33,6 @@ func deal_damage():
 		return
 	health_component.take_damage(1)
 	damage_timer.start()
-	print(health_component.current_health)
 
 
 func update_health_bar():

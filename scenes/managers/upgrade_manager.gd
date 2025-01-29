@@ -22,5 +22,4 @@ func apply_upgrade(ability: BaseAbility, upgrade: AbilityUpgrade):
 	else:
 		ability.current_upgrades[upgrade.id]["quantity"] += 1
 	
-	print(ability.current_upgrades)
 	GameEvents.emit_ability_upgrade_added(ability, upgrade)
