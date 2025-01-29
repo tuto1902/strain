@@ -22,12 +22,13 @@ border_color = Color(0.203922, 0.109804, 0.152941, 1)
 anti_aliasing = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4kw0"]
-radius = 17.0294
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycvrb"]
 radius = 15.0333
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine") groups=["Player"]]
+collision_layer = 2
 script = ExtResource("1_wqs5c")
 state_machine = NodePath("StateMachine")
 
