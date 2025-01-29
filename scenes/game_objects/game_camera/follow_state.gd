@@ -13,5 +13,4 @@ func handle_frame(delta):
 		return
 	
 	var player_position = player.global_position
-	print(state_owner.limit_top, state_owner.limit_left)
 	state_owner.global_position = state_owner.global_position.lerp(player_position, 1.0 - exp(-delta * smooth_speed))
