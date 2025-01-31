@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwemgjukglhwe"]
+[gd_scene load_steps=15 format=3 uid="uid://dwemgjukglhwe"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/virus/stage_1_virus.gd" id="1_6xrh1"]
 [ext_resource type="Texture2D" uid="uid://cesia53gn74h3" path="res://assets/sprites/virus_stage_1.png" id="1_k83es"]
+[ext_resource type="PackedScene" uid="uid://ch278w7g45voq" path="res://scenes/game_objects/enemies/enemy_death_fx.tscn" id="2_kj128"]
 [ext_resource type="PackedScene" uid="uid://f3w7wof0i5v8" path="res://scenes/components/health_component.tscn" id="2_rdei7"]
 [ext_resource type="PackedScene" uid="uid://bg8nhidbgna2f" path="res://scenes/components/hurt_box_component.tscn" id="3_31key"]
 [ext_resource type="Script" path="res://scripts/state_machine/enemy_state_machine.gd" id="3_s610a"]
@@ -54,6 +55,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_6xrh1")
 state_machine = NodePath("EnemyStateMachine")
+death_fx_scene = ExtResource("2_kj128")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_rdei7")]
 

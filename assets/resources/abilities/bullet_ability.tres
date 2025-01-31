@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="BaseAbility" load_steps=7 format=3 uid="uid://bxk27vdbho5yh"]
+[gd_resource type="Resource" script_class="BaseAbility" load_steps=8 format=3 uid="uid://bxk27vdbho5yh"]
 
 [ext_resource type="PackedScene" uid="uid://cb0afvsqwrupk" path="res://scenes/game_objects/abilities/bullet.tscn" id="1_wjn03"]
 [ext_resource type="Script" path="res://assets/resources/abilities/base_ability.gd" id="2_clrpu"]
 [ext_resource type="Script" path="res://assets/resources/abilities/ability_stats.gd" id="3_n4brb"]
 [ext_resource type="Script" path="res://assets/resources/abilities/upgrades/ability_upgrade.gd" id="4_dbh60"]
 [ext_resource type="Resource" uid="uid://cpo6f22y5puww" path="res://assets/resources/abilities/upgrades/bullet_rate.tres" id="5_4b8qa"]
+[ext_resource type="Resource" uid="uid://dp3av6qulh2sd" path="res://assets/resources/abilities/upgrades/bullet_size.tres" id="6_it357"]
 
 [sub_resource type="Resource" id="Resource_tuktk"]
 script = ExtResource("3_n4brb")
@@ -21,4 +22,4 @@ rate = 1.0
 script = ExtResource("2_clrpu")
 ability_scene = ExtResource("1_wjn03")
 stats = SubResource("Resource_tuktk")
-upgrade_pool = Array[ExtResource("4_dbh60")]([ExtResource("5_4b8qa")])
+upgrade_pool = Array[ExtResource("4_dbh60")]([ExtResource("5_4b8qa"), ExtResource("6_it357")])

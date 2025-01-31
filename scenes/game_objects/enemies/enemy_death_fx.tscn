@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch278w7g45voq"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/enemies/enemy_death_fx.gd" id="1_u15gn"]
+[ext_resource type="AudioStream" uid="uid://qi0iwt0v8sg8" path="res://assets/sfx/sfx_virus_splat.wav" id="2_jrbm0"]
+
+[node name="EnemyDeathFx" type="Node2D"]
+script = ExtResource("1_u15gn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jrbm0")
+volume_db = -13.0

@@ -2,12 +2,7 @@ class_name AbilityManager extends Node
 
 func _ready():
 	for ability_resource: BaseAbility in PlayerManager.current_abilities:
-		# TO-DO: apply ability rate upgrades when creating the ability timer
-		var rate_reduction = 0.0
-		if ability_resource.current_upgrades.has("bullet_rate"):
-			rate_reduction = ability_resource.current_upgrades["bullet_rate"]["quantity"] * 0.1
-		var ability_rate = ability_resource.stats.rate * (1 - rate_reduction)
-		get_tree().create_timer(ability_rate).timeout.connect(_on_ability_timer_timeout.bind(ability_resource))
+		create_one_shot_ability_timer(ability_resource)
 
 
 func get_enemies_in_range(player: Player, max_range: float):
@@ -45,9 +40,20 @@ func _on_ability_timer_timeout(ability_resource: BaseAbility):
 	#TO-DO: Apply abiliy upgrades once the ability instance is created
 	ability_instance.stats = ability_resource.stats
 	player.get_parent().add_child(ability_instance)
+	var scale_increase = 0.0
+	if ability_resource.current_upgrades.has("bullet_size"):
+		scale_increase = ability_resource.current_upgrades["bullet_size"]["quantity"] * 0.2
+		ability_instance.scale = Vector2(
+			ability_resource.stats.size * (1 + scale_increase),
+			ability_resource.stats.size * (1 + scale_increase),
+		)
 	ability_instance.global_position = player.global_position
 	ability_instance.direction_to_target = player.global_position.direction_to(enemies[0].global_position)
 
 
 func create_one_shot_ability_timer(ability_resource: BaseAbility):
-	get_tree().create_timer(ability_resource.stats.rate).timeout.connect(_on_ability_timer_timeout.bind(ability_resource))
+	var rate_reduction = 0.0
+	if ability_resource.current_upgrades.has("bullet_rate"):
+		rate_reduction = ability_resource.current_upgrades["bullet_rate"]["quantity"] * 0.1
+	var ability_rate = ability_resource.stats.rate * (1 - rate_reduction)
+	get_tree().create_timer(ability_rate).timeout.connect(_on_ability_timer_timeout.bind(ability_resource))

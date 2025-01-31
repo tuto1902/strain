@@ -4,6 +4,8 @@ var speed_multiplier: float
 var health_multiplier: float
 
 @export var state_machine: EnemyStateMachine
+@export var death_fx_scene: PackedScene
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var health_component = $HealthComponent
 
@@ -23,4 +25,8 @@ func _process(delta: float) -> void:
 
 
 func on_death():
+	var foreground_layer = get_tree().get_first_node_in_group("ForegroundLayer")
+	if foreground_layer:
+		var death_fx_instance = death_fx_scene.instantiate()
+		foreground_layer.add_child(death_fx_instance)
 	queue_free()
