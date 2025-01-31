@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://btwmfhhb5qmb2"]
+[gd_scene load_steps=18 format=3 uid="uid://btwmfhhb5qmb2"]
 
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="1_fo8d4"]
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_wqs5c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bcbtrueha5myu" path="res://assets/resources/abilities/ability_manager.tscn" id="5_c58m6"]
 [ext_resource type="PackedScene" uid="uid://f3w7wof0i5v8" path="res://scenes/components/health_component.tscn" id="5_gdwy5"]
 [ext_resource type="Texture2D" uid="uid://beco2sd6hg7e5" path="res://assets/sprites/cell_player_2.png" id="7_xsd51"]
+[ext_resource type="AudioStream" uid="uid://crg27vhtockj1" path="res://assets/sfx/sfx_alien_hurt.wav" id="8_rgim4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnvx6"]
 bg_color = Color(0.203922, 0.109804, 0.152941, 1)
@@ -118,3 +119,7 @@ collision_mask = 4
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_ycvrb")
 debug_color = Color(0.740478, 0.459663, 0.218635, 0.42)
+
+[node name="DamageSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rgim4")
+volume_db = -13.0

@@ -12,13 +12,9 @@ func _ready():
 
 
 func set_ability_upgrades(ability: BaseAbility):
-	var chosen_upgrade = ability.upgrade_pool.pick_random() as AbilityUpgrade
-	if chosen_upgrade == null:
-		return
 	# TO-DO: Pick three random upgrades from the ability upgrade pool
 	# Setting this as a single item array for testing
-	var upgrades = [chosen_upgrade]
-	for upgrade in upgrades:
+	for upgrade in ability.upgrade_pool:
 		var card_instance = ability_upgrade_card_scene.instantiate() as AbilityUpgradeCard
 		card_container.add_child(card_instance)
 		card_instance.set_ability_upgrade(upgrade)

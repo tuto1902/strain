@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var damage_timer = $DamageTimer
 @onready var health_component = $HealthComponent
 @onready var health_bar = $HealthBar
+@onready var damage_sfx = $DamageSfx
 
 var colliding_bodies: int = 0
 
@@ -32,6 +33,8 @@ func deal_damage():
 	if colliding_bodies == 0 || !damage_timer.is_stopped():
 		return
 	health_component.take_damage(1)
+	damage_sfx.pitch_scale = randf_range(0.9, 1.2)
+	damage_sfx.play()
 	damage_timer.start()
 
 

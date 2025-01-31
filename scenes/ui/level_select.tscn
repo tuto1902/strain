@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://5uf4cfwj7cob"]
+[gd_scene load_steps=19 format=3 uid="uid://5uf4cfwj7cob"]
 
 [ext_resource type="PackedScene" uid="uid://ck20hxhe3h3oo" path="res://scenes/ui/level_icon.tscn" id="1_d6rlj"]
 [ext_resource type="Script" path="res://scenes/ui/level_select.gd" id="1_xwpoj"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://wkydlcvd5yg8" path="res://scenes/ui/player_icon.tscn" id="6_m1cx6"]
 [ext_resource type="Texture2D" uid="uid://bfehdk6pwvbfk" path="res://assets/resources/levels/shop_level_icon_texture.tres" id="7_00jm5"]
 [ext_resource type="Texture2D" uid="uid://dff5w3pir8g03" path="res://assets/resources/levels/shop_level_cleared_icon_texture.tres" id="8_p5eap"]
-[ext_resource type="Texture2D" uid="uid://c2r0txen2plk5" path="res://assets/resources/levels/mutation_level_locked_icon_texture.tres" id="9_7y2so"]
-[ext_resource type="Texture2D" uid="uid://e4peej1eshay" path="res://assets/resources/levels/mutation_level_icon_texture.tres" id="10_0e5c0"]
 [ext_resource type="Texture2D" uid="uid://3twsd8ukb03x" path="res://assets/resources/levels/mutation_level_cleared_icon_texture.tres" id="11_dbhhx"]
 [ext_resource type="AudioStream" uid="uid://2g2o8qpq304b" path="res://assets/music/mus_node_select.wav" id="13_q74rg"]
 [ext_resource type="AudioStream" uid="uid://cvxmytgy43t4o" path="res://assets/sfx/sfx_select.wav" id="14_hsm2i"]
@@ -165,12 +163,12 @@ offset_right = -94.0
 offset_bottom = -18.0
 level_id = "level_4"
 level_index = 4
-level_name = "Mutate"
-level_type = "mutate"
+level_name = "Shop"
+level_type = "shop"
 level_down = NodePath("../Level9")
 level_status = "Locked"
-locked_icon_texture = ExtResource("9_7y2so")
-unlocked_icon_texture = ExtResource("10_0e5c0")
+locked_icon_texture = ExtResource("6_b3xq6")
+unlocked_icon_texture = ExtResource("7_00jm5")
 cleared_icon_texture = ExtResource("11_dbhhx")
 
 [node name="Level5" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("1_d6rlj")]
@@ -193,12 +191,12 @@ offset_right = -94.0
 offset_bottom = -100.0
 level_id = "level_6"
 level_index = 6
-level_name = "Mutate"
-level_type = "mutate"
+level_name = "Shop"
+level_type = "shop"
 level_right = NodePath("../Level7")
 level_status = "Locked"
-locked_icon_texture = ExtResource("9_7y2so")
-unlocked_icon_texture = ExtResource("10_0e5c0")
+locked_icon_texture = ExtResource("6_b3xq6")
+unlocked_icon_texture = ExtResource("7_00jm5")
 cleared_icon_texture = ExtResource("11_dbhhx")
 
 [node name="Level7" parent="Levels" node_paths=PackedStringArray("level_down") instance=ExtResource("1_d6rlj")]

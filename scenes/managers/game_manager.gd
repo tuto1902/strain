@@ -41,3 +41,7 @@ func change_arena_scene(new_scene: String, delete: bool = true, keep_running: bo
 	var new_arena_scene = load(new_scene).instantiate() as Node2D
 	arena.add_child(new_arena_scene)
 	current_arena_scene = new_arena_scene
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		change_gui_scene("res://scenes/ui/main_menu.tscn")
